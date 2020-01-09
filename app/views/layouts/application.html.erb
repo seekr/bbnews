@@ -9,23 +9,24 @@
     <% end %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body id="<%= content_for(:page) %>" class="d-flex flex-column" style="min-height:100vh">
+  <body id="<%= content_for(:page) %>" class="flex flex-column min-vh-100">
 
     <% #unless content_for(:page) == 'home' %>
       <%= render 'layouts/navbar' %>
     <% #end %>
 
-    <div class="container mb-auto">
+    <div class="center w-100">
       <%= yield %>
     </div>
 
-    <footer class="mt-4">
+    <footer class="mt2">
       <div class="container-fluid">
         <p class="text-center text-muted">
-          <span>Built with &hearts; by <a href="https://vinc.cc" class="text-muted"><strong>vinc</strong></a>.</span>
+          <span>Forked by <a href="https://orph.eu" class="text-muted"><strong>mario</strong></a>; built by <a href="https://vinc.cc" class="text-muted"><strong>vinc</strong></a>.</span>
           <span>Code licensed <a href="https://github.com/vinc/news/blob/master/LICENSE" class="text-muted"><strong>MIT</strong></a>.</span>
         </p>
       <div>
