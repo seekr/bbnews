@@ -4,8 +4,8 @@
 <% content_for(:results, @results) %>
 
 <% if @results.present? %>
-  <div class="bg-gray" style="height: 30px;">
-    <span class="">Showing <%= pluralize(@results.size, "result") %></span>
+  <div class="bg-gray w-100 " style="z-index: 999; top: 58px; height: 24px; background: #fff; border-bottom: solid 1px #EBEBEB;">
+    <span class="ph2" style="color: #646464; font-size: 12px; font-weight: normal;">Showing <strong><%= pluralize(@results.size, "result") %></strong> from  <%= @source.title %></span>
   </div>
 
   <div class="alert alert-success" role="alert" style="<%= alert ? '' : 'display:none' %>">

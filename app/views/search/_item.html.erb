@@ -1,50 +1,43 @@
 <hr class="sr-only">
-<article class="card mb-3" data-url="<%= item.via %>">
-  <div class="card-header">
-    <div class="row text-muted">
-      <div class="col col-auto">
-        <%= @source.title %>
-      </div>
-      <% if item.created_at %>
-        <div class="col text-right">
-          <%= time_tag(item.created_at, time_ago_in_words(item.created_at)) %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="card-block">
+<article class="bb b--black-10" data-url="<%= item.via %>">
+  <div class="pa2">
     <% if item.title %>
-      <h4 class="card-title"><a href="<%= item.url %>"><%= item.title %></a></h4>
+      <h4 class="f5 mb0"><a href="<%= item.url %>"><%= item.title %></a></h4>
     <% end %>
 
     <% if item.html %>
-      <div class="card-text">
-        <%= item.html.html_safe %>
+      <div class="f6">
+        <%= item.html.html_safe %> | 
       </div>
     <% end %>
 
     <% if item.image %>
-      <p class="card-text text-center mt-3">
+      <p class="f6 text-center mt-3">
         <%= image_tag thumb_url(item.image, geometry: '800x800'), alt: 'image', class: 'img-fluid' %>
       </p>
     <% end %>
 
     <% if item.counts %>
       <% item.counts.each do |k, v| %>
-        <a class="card-link text-muted" href="<%= item.via %>">
+        <a class="f6 text-muted" href="<%= item.via %>">
           <%= number_to_human(v) %>
           <%= k.pluralize(v) %>
-        </a>
+        </a> |
       <% end %>
     <% end %>
 
-    <!--
+    
     <% if item.author %>
-      <a class="card-link text-muted" href="<%= item.via %>">
-        @<%= item.author %>
+      <a class="f6 text-muted" href="<%= item.via %>">
+        @<%= item.author %> |
       </a>
     <% end %>
-    -->
+
+    <% if item.created_at %>
+        <span class="f6">
+          <%= time_tag(item.created_at, time_ago_in_words(item.created_at)) %>
+        </span>
+    <% end %>
+    
   </div>
 </article>
