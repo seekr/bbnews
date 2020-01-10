@@ -1,5 +1,5 @@
 <hr class="sr-only">
-<article class="bb b--black-10" data-url="<%= item.via %>">
+<article class="flex justify-between bb b--black-10" data-url="<%= item.via %>">
   <div class="pa2">
     <% if item.title %>
       <h4 class="f5 mb0"><a href="<%= item.url %>"><%= item.title %></a></h4>
@@ -7,14 +7,14 @@
 
     <% if item.html %>
       <div class="f6">
-        <%= item.html.html_safe %> | 
-      </div>
+        <%= item.html.html_safe %>  
+      </div> |
     <% end %>
-
+    
     <% if item.image %>
       <p class="f6 text-center mt-3">
         <%= image_tag thumb_url(item.image, geometry: '800x800'), alt: 'image', class: 'img-fluid' %>
-      </p>
+      </p> |
     <% end %>
 
     <% if item.counts %>
@@ -22,15 +22,15 @@
         <a class="f6 text-muted" href="<%= item.via %>">
           <%= number_to_human(v) %>
           <%= k.pluralize(v) %>
-        </a> |
+        </a> 
       <% end %>
     <% end %>
-
     
     <% if item.author %>
       <a class="f6 text-muted" href="<%= item.via %>">
-        @<%= item.author %> |
+        @<%= item.author %> 
       </a>
+      |
     <% end %>
 
     <% if item.created_at %>
@@ -40,4 +40,8 @@
     <% end %>
     
   </div>
+  <div class="flex-grow pr2 flex items-center">
+  <%= image_tag("check-confirm-ok-done.png", size: "48", :alt => "rss feed") %>
+  </div>
 </article>
+
