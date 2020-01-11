@@ -15,7 +15,6 @@
  */
 
 
-@import "bootstrap";
 
 .sr-only {
   position: absolute;
@@ -28,6 +27,12 @@
   border: 0;
 }
 
+nav {
+
+  transition: all 500ms ease;
+  transform: translateX(0px);
+}
+
 .navbar-inverse .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.8);
 }
@@ -35,17 +40,8 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-@include media-breakpoint-down(sm) {
-  .navbar.search-focused {
-    .navbar-brand,
-    .navbar-nav {
-      display: none;
-    }
-  }
-}
-
 .turbolinks-progress-bar {
-  background-color: lighten($brand-primary, 25%);
+  background-color: lighten(#F00, 25%);
 }
 
 span.twitter-typeahead {
@@ -56,28 +52,25 @@ span.twitter-typeahead {
   .tt-input::selection,
   .tt-cursor {
     color: inherit !important;
-    background-color: $input-border-focus !important;
+    background-color: #CCC !important;
   }
 
   .tt-hint {
-    color: $input-color-placeholder;
+    color: #CCC;
   }
 
   .tt-menu {
     width: 100%;
-    @extend .dropdown-menu;
   }
 
   .tt-suggestion {
-    @extend .dropdown-item;
   }
 
   .tt-suggestion.tt-cursor {
-     @extend .dropdown-item.active;
   }
 }
 
 // Harmonize background color of selection in input
 input::selection {
-  background-color: $input-border-focus !important;
+  background-color: #CCC !important;
 }

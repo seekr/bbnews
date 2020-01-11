@@ -13,13 +13,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body id="<%= content_for(:page) %>" class="flex flex-column min-vh-100">
+  <body id="<%= content_for(:page) %>" class="flex flex-column min-vh-100 overflow-x-hidden">
 
+<!-- 
     <% #unless content_for(:page) == 'home' %>
       <%= render 'layouts/navbar' %>
     <% #end %>
+-->
+    <nav role='navigation' class="db fixed w5 right-0 top-0 vh-100">
+      <div id="menuToggle" class="db fixed w3 h3 bg-black-50 right-0 bottom-0">
+      </div>
+      <ul>
+      <li>item 1</li>
+      </ul>
+    </nav>
 
-    <div class="center w-100">
+    <div class=" center w-100">
       <%= yield %>
     </div>
 

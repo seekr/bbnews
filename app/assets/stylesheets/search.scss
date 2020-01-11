@@ -4,14 +4,17 @@
 }
 
 .card-read {
-  opacity: 0.25;
   h4 {
     font-size: .75rem;
+    opacity: 0.25;
   }
   .metadata {
     display: none;
   }
   .hide {
     vertical-align: top;
+    img {
+      opacity: 0.25;
+    }
   }
 }
