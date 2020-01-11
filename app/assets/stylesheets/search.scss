@@ -1,12 +1,17 @@
+
 .card-header {
   cursor: pointer;
 }
 
 .card-read {
   opacity: 0.25;
-  height: 32px;
-  overflow: hidden;
-  .hide {
+  h4 {
+    font-size: .75rem;
+  }
+  .metadata {
     display: none;
+  }
+  .hide {
+    vertical-align: top;
   }
 }

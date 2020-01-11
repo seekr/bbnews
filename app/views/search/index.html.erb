@@ -4,8 +4,11 @@
 <% content_for(:results, @results) %>
 
 <% if @results.present? %>
-  <div class="bg-gray w-100 " style="z-index: 999; top: 58px; height: 24px; background: #fff; border-bottom: solid 1px #EBEBEB;">
+  <div class="bg-gray w-100 bg-white bb b--black-10">
     <span class="ph2" style="color: #646464; font-size: 12px; font-weight: normal;">Showing <strong><%= pluralize(@results.size, "result") %></strong> from  <%= @source.title %></span>
+    <div class="dn">
+      <button id="save-query" type="button" role="button" class="btn btn-outline-primary">Save</button>
+    </div>
   </div>
 
   <div class="alert alert-success" role="alert" style="<%= alert ? '' : 'display:none' %>">
@@ -17,7 +20,7 @@
   <% end %>
 
   <% if @source.source_title %>
-    <p class="text-center text-muted">Search powered by <%= link_to @source.source_title, @source.source_url %></p>
+    <p class="text-center text-muted mv4">Search powered by <%= link_to @source.source_title, @source.source_url %></p>
   <% end %>
 <% else %>
   <header class="mb-5">

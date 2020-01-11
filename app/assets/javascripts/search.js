@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   // Mark an item as read or unread
-  $('.item > .hide').click(function(e) {
+  $('.hide').click(function(e) {
     var card = $(this).parent();
     var permalink = card.data('url');
 
@@ -101,13 +101,13 @@ $(document).on('unsave', function(event, query) {
 });
 
 $(document).on('read', function(event, permalink) {
-  var card = $('.card[data-url="' + permalink + '"]');
+  var card = $('.item[data-url="' + permalink + '"]');
 
   card.addClass('card-read');
 });
 
 $(document).on('unread', function(event, permalink) {
-  var card = $('.card[data-url="' + permalink + '"]');
+  var card = $('.item[data-url="' + permalink + '"]');
 
   card.removeClass('card-read');
 });
