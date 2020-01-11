@@ -25,7 +25,7 @@ var updateQueriesList = function() {
 
 $(document).on('turbolinks:load', function() {
   // Hide all read items on load
-  $('.card').each(function() {
+  $('.item').each(function() {
     var card = $(this);
     var permalink = card.data('url');
 
@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   // Mark an item as read or unread
-  $('.card > .card-header').click(function(e) {
+  $('.item > .hide').click(function(e) {
     var card = $(this).parent();
     var permalink = card.data('url');
 

@@ -3,12 +3,10 @@
 }
 
 .card-read {
-  opacity: 0.5;
-
-  .card-header {
-    border-bottom: none;
-  }
-  .card-block {
+  opacity: 0.25;
+  height: 32px;
+  overflow: hidden;
+  .hide {
     display: none;
   }
 }

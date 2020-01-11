@@ -1,5 +1,5 @@
 <hr class="sr-only">
-<article class="flex justify-between bb b--black-10" data-url="<%= item.via %>">
+<article class="item flex justify-between bb b--black-10" data-url="<%= item.via %>">
   <div class="pa2">
     <% if item.title %>
       <h4 class="f5 mb0"><a href="<%= item.url %>"><%= item.title %></a></h4>
@@ -40,8 +40,8 @@
     <% end %>
     
   </div>
-  <div class="flex-grow pr2 flex items-center">
-  <%= image_tag("check-confirm-ok-done.png", size: "48", :alt => "rss feed") %>
+  <div class="hide flex-grow ph3 flex items-center bl b--black-10">
+  <%= image_tag("check-confirm-ok-done.png", size: "24", :alt => "rss feed") %>
   </div>
 </article>
 
