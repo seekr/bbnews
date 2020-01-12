@@ -2,7 +2,7 @@
 <article class=" item dt w-100 bb b--black-10" data-url="<%= item.via %>">
   <div class="dtc pa2">
     <% if item.title %>
-      <h4 class="f5 mb0 fw6"><a href="<%= item.url %>"><%= item.title %></a></h4>
+      <a class="link black lh-title f5 fw6 underline-hover" href="<%= item.url %>"><%= item.title %></a>
     <% end %>
     <div class="metadata">
     <% if item.html %>
@@ -19,7 +19,7 @@
 
     <% if item.counts %>
       <% item.counts.each do |k, v| %>
-        <a class="f6 text-muted" href="<%= item.via %>">
+        <a class="f6 link gray underline-hover" href="<%= item.via %>">
           <%= number_to_human(v) %>
           <%= k.pluralize(v) %>
         </a> 
@@ -27,21 +27,20 @@
     <% end %>
     
     <% if item.author %>
-      <a class="f6 text-muted" href="<%= item.via %>">
+      <a class="f6 link gray underline-hover" href="<%= item.via %>">
         @<%= item.author %> 
       </a>
-      |
     <% end %>
-
+        
     <% if item.created_at %>
-        <span class="f6 text-muted">
+        <span class="f6 black-20"> |
           <%= time_tag(item.created_at, time_ago_in_words(item.created_at)) %>
         </span>
     <% end %>
     </div>
   </div>
-  <div class="hide dtc v-mid dim w3 tc bl b--black-10">
-    <%= image_tag("check-confirm-ok-done.png", size: "24", :alt => "rss feed") %>
+  <div class="hide dtc v-mid dim w3 tc bl b--black-10 pointer">
+    <%= image_tag("check-confirm-ok-done.png", size: "24", :alt => "Mark as read") %>
   </div>
 </article>
 

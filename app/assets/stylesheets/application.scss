@@ -27,10 +27,30 @@
   border: 0;
 }
 
-nav {
+.w6 {
+  width: 32rem
+}
 
-  transition: all 500ms ease;
-  transform: translateX(0px);
+nav {
+  z-index: 999;
+  transition: transform 300ms ease-in-out;
+  transform: translateX(30%);
+  box-shadow: -8px 0px 15px rgba(50, 50, 50, 0.25);
+  &.closed {
+    transform: translateX(32rem);
+    box-shadow: none;
+
+  }
+  ul li {
+    padding-left: 1rem;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .navbar-inverse .navbar-nav .nav-link {

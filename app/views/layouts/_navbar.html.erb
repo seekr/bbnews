@@ -1,16 +1,12 @@
-<nav class="navbar navbar-toggleable-xl navbar-inverse bg-primary <%= content_for(:page) == 'home' ? '' : '' %>">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <% unless content_for(:page) == 'home' %>
-  <a class="navbar-brand" href="/">News</a>
-  <% end %>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <% unless content_for(:page) == 'home' %>
-      <%= render 'search/form' %>
-    <% end %>
-
+<div class="flex bb b--blue bw1 bg-black-10">
+  <div id="menuToggle" class="flex items-center pointer pa2">
+  <%= image_tag("hambuguer-menu-segment.png", size: "24", :alt => "Open Menu") %>
   </div>
-</nav>
+  <div class="pa0 ph2 flex items-center w-80">
+  <% unless content_for(:page) == 'home' %>
+    <%= render 'search/form' %>
+  <% end %>
+  </div>
+</div>

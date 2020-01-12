@@ -1,16 +1,36 @@
-<div class="suggested-queries">
-  <h2 class="mb-3">Try searching:</h2>
-  <ul>
-    <li><%= link_to_search('hackernews') %> // hackernews homepage </li>
-    <li><%= link_to_search('hn sort:top limit:30', highlight_filters: true) %> // filters</li>
-    <li><%= link_to_search('hn rust time:month', highlight_filters: true) %> // hackernews search</li>
-    <li><%= link_to_search('reddit blackberry') %> // subreddit</li>
-    <li><%= link_to_search('r argentina merval') %> // multireddit</li>
-    <li><%= link_to_search('r news worldnews sort:top time:week limit:10', highlight_filters: true) %></li>
-    <li><%= link_to_search('twitter exoplanets') %> // twitter search</li>
-    <li><%= link_to_search('t exoplanets type:recent limit:100', highlight_filters: true) %></li>
-    <li><%= link_to_search('t puppy filter:images type:popular sort:top', highlight_filters: true) %></li>
-    <li><%= link_to_search('wikipedia events') %> // wikipedia special news page </li>
-    <li><%= link_to_search('w events time:week', highlight_filters: true) %></li>
+  <ul class="list pl0 mt3 mb0 white-50">
+    <li class="pv2">
+      <%= link_to_search('hackernews') %>
+      <span class="db">hackernews homepage</span>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('hn sort:top limit:30', highlight_filters: true) %> 
+      <span class="db ">filters</span>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('reddit blackberry') %>
+      <span class="db ">subreddit</span>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('r argentina merval') %>
+      <span class="db ">multireddit</span>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('r news worldnews sort:top time:week limit:10', highlight_filters: true) %>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('twitter design') %>
+      <span class="db ">twitter search</span>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('t design type:recent limit:100', highlight_filters: true) %>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('wikipedia events') %>
+      <span class="db ">wikipedia special news page </span>
+    </li>
+    <li class="pv2">
+      <%= link_to_search('w events time:week', highlight_filters: true) %>
+    </li>
   </ul>
-</div>
+
