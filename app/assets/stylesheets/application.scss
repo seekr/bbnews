@@ -33,13 +33,14 @@
 
 nav {
   z-index: 999;
-  transition: transform 300ms ease-in-out;
-  transform: translateX(30%);
-  box-shadow: -8px 0px 15px rgba(50, 50, 50, 0.25);
+  transition: opacity 300ms ease-in-out;
+  opacity: 1;
+  //box-shadow: -8px 0px 15px rgba(50, 50, 50, 0.25);
   &.closed {
-    transform: translateX(32rem);
+    //transform: translateX(32rem);
     box-shadow: none;
-
+    display: none;
+    opacity: 0;
   }
   ul li {
     padding-left: 1rem;
