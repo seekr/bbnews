@@ -20,7 +20,8 @@ class HackernewsSource < Source
     @source_api = :request_search
     @filters = {
       times: %i(hour day week month year all),
-      limits: 1..100
+      limits: 1..100,
+      tags: %i(story comment show_hn ask_hn)
     }
   end
 
@@ -70,12 +71,13 @@ class HackernewsSource < Source
   def request_search(args, options={})
     limit = @filters[:limits].include?(options[:limit]) ? options[:limit] : 10
     time = @filters[:times].include?(options[:time]) ? options[:time] : :day
+    tag = @filters[:tags].include?(options[:tag]) ? options[:tag] : :story
 
     created_after = time == :all ? 0 : (Time.zone.now - 1.send(time)).to_i
 
     params = {
       query: args[1..-1].join(' '),
-      tags: 'story',
+      tags: tag,
       hitsPerPage: limit,
       numericFilters: "created_at_i>#{created_after}"
     }

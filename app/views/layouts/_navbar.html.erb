@@ -8,10 +8,10 @@
       <path d="M19 72H77" stroke="#323232" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>  
   </div>
-  <div class="pa0 ph2 flex items-center w-80">
-  <% unless content_for(:page) == 'home' %>
-    <%= render 'search/form' %>
-  <% end %>
+  <div class="pa0 ph2 flex items-center w-100">
+    <% unless content_for(:page) == 'home' %>
+      <%= render 'search/form' %>
+    <% end %>
   </div>
   <div class="items-center">
     <%= link_to 'Settings', edit_settings_path, class: "#{content_for(:page) == 'settings' ? 'active' : ''}" %>
