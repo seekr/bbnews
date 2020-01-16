@@ -28,7 +28,7 @@ class NewsapiSource < Source
       apiKey: ENV['NEWSAPI_KEY']
     }
     url = 'https://newsapi.org/v1/articles'
-    res = RestClient.get(url, :params => params)
+    res = RestClient.get(url, :params => params, :verify_ssl => false)
     json = JSON.parse(res.body)
     items = json['articles'].take(limit)
 
@@ -44,7 +44,7 @@ class NewsapiSource < Source
 
     Rails.cache.fetch('newsapi:suggestions', expires_in: 1.day) do
       url = 'https://newsapi.org/v1/sources'
-      res = RestClient.get(url)
+      res = RestClient.get(url, :verify_ssl => false)
       json = JSON.parse(res.body)
       json['sources'].map { |source| source['id'] }
     end
