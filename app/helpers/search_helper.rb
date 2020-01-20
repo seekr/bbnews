@@ -15,9 +15,10 @@ module SearchHelper
     link_to(title, search_path(q: query))
   end
 
+  # https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=XXXXX&container=focus&resize_w=650&refresh=31536000
   def thumb_url(url, geometry: 'x')
     rehost_url = ENV["REHOST_URL"] || 'http://localhost:4000'
-    encoded_url = Base64.urlsafe_encode64(url, padding: false)
-    "#{rehost_url}/#{encoded_url}.jpg?resize=#{geometry}"
+    encoded_url = url
+    "#{rehost_url}?url=#{CGI::escape(encoded_url)}&container=focus&resize_w=800"
   end
 end
