@@ -8,13 +8,13 @@
     <% if item.html %>
       <div class="f6">
         <%= item.html.html_safe %>  
-      </div> |
+      </div>
     <% end %>
     
     <% if item.image %>
-      <p class="f6 text-center mt-3">
+      <span class="tc mt3">
         <%= image_tag thumb_url(item.image, geometry: '800x800'), alt: 'image', class: 'img-fluid' %>
-      </p>
+      </span>
     <% end %>
 
     <% if item.counts %>
