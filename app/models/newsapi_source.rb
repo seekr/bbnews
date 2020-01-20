@@ -23,11 +23,11 @@ class NewsapiSource < Source
     sort = sorts[options[:sort]] || :top
 
     params = {
-      source: args[1],
+      sources: args[1],
       sortBy: sort,
       apiKey: ENV['NEWSAPI_KEY']
     }
-    url = 'https://newsapi.org/v1/articles'
+    url = 'https://newsapi.org/v2/top-headlines'
     res = RestClient.get(url, :params => params, :verify_ssl => false)
     json = JSON.parse(res.body)
     items = json['articles'].take(limit)
