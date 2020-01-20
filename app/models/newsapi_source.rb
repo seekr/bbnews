@@ -43,8 +43,8 @@ class NewsapiSource < Source
     return [] if query.split(' ', -1).keep_if { |w| !w[':']}.count > 2
 
     Rails.cache.fetch('newsapi:suggestions', expires_in: 1.day) do
-      url = 'https://newsapi.org/v1/sources'
-      res = RestClient.get(url, :verify_ssl => false)
+      url = 'https://newsapi.org/v2/sources'
+      res = RestClient.get(url, apiKey: ENV['NEWSAPI_KEY'], :verify_ssl => false)
       json = JSON.parse(res.body)
       json['sources'].map { |source| source['id'] }
     end
