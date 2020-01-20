@@ -12,9 +12,9 @@
     <% end %>
     
     <% if item.image %>
-      <span class="tc mt3">
+      <div>
         <%= image_tag thumb_url(item.image, geometry: '800x800'), alt: 'image', class: 'img-fluid' %>
-      </span>
+      </div>
     <% end %>
 
     <% if item.counts %>
