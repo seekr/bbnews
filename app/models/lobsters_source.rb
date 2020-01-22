@@ -30,7 +30,7 @@ class LobstersSource < Source
     items = json
 
     items.map do |item|
-      NewsapiItem.from_hash(item)
+      LobstersItem.from_hash(item)
     end
   rescue RestClient::NotFound
   end
