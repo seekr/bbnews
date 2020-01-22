@@ -1,17 +1,13 @@
 class LobstersItem < Item
   def self.from_hash(hash)
-    via = "https://lobste.rs/s/#{hash['id'].json || hash['objectID']}"
-    url = hash['url'].nil? || hash['url'].start_with?('item?id=') ? via : hash['url']
-
     self.new(
-      author: hash['user'] || hash['author'],
-      created_at: Time.at(hash['time'] || hash['created_at_i']),
+      author: hash['username'] || hash['submitter_user'],
+      created_at: Time.at(hash['created_at']),
       title: hash['title'],
-      url: url,
-      via: via,
+      url: hash['title'],
       counts: Counts.new(
-        points: hash['points'],
-        comments: hash['comments_count'] || hash['num_comments']
+        points: hash['upvotes'],
+        comments: hash['comment_count'] || hash['num_comments']
       )
     )
   end
