@@ -1,10 +1,13 @@
 <hr class="sr-only">
 <article class=" item dt w-100 bb b--black-10" data-url="<%= item.via %>">
   <div class="dtc pa2">
+
     <% if item.title %>
       <a class="link black lh-title f5 fw6 underline-hover" href="<%= item.url %>"><%= item.title %></a>
     <% end %>
+
     <div class="metadata">
+
     <% if item.html %>
       <div class="f6">
         <%= item.html.html_safe %>  
@@ -37,6 +40,7 @@
           <%= time_tag(item.created_at, time_ago_in_words(item.created_at)) %>
         </span>
     <% end %>
+    
     </div>
   </div>
   <div class="hide dtc v-mid dim w3 tc bl b--black-10 pointer">

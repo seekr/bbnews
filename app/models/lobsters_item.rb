@@ -3,7 +3,7 @@ class LobstersItem < Item
     time = hash['created_at'] ? Time.parse(hash['created_at']) : nil
 
     self.new(
-      author: hash['username'],
+      author: hash['submitter_user']['username'],
       created_at: time,
       title: hash['title'],
       url: hash['url'],

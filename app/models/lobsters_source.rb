@@ -26,8 +26,8 @@ class LobstersSource < Source
     }
     url = 'https://lobste.rs/hottest.json'
     res = RestClient.get(url, :params => params, :verify_ssl => false)
-    json = JSON.parse(res.body)
-    items = json
+    items = JSON.parse(res.body)
+    
 
     items.map do |item|
       LobstersItem.from_hash(item)
@@ -35,15 +35,4 @@ class LobstersSource < Source
   rescue RestClient::NotFound
   end
 
-  def get_suggestions(query)
-    # Only one source per query
-    return [] if query.split(' ', -1).keep_if { |w| !w[':']}.count > 2
-
-    Rails.cache.fetch('newsapi:suggestions', expires_in: 1.day) do
-      url = 'https://newsapi.org/v2/sources'
-      res = RestClient.get(url, apiKey: ENV['NEWSAPI_KEY'], :verify_ssl => false)
-      json = JSON.parse(res.body)
-      json['sources'].map { |source| source['id'] }
-    end
-  end
 end
