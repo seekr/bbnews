@@ -64,7 +64,8 @@ class Source
     'r'  => 'reddit',
     't'  => 'twitter',
     'w'  => 'wikipedia',
-    'n' => 'newsapi'
+    'n' => 'newsapi',
+    'l' => 'lobsters'
   }.freeze
 
   # 'hackernews time:week' will return an instance of HackernewsSource

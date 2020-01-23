@@ -22,13 +22,12 @@ class LobstersSource < Source
 
     params = {
       sources: args[1],
-      sortBy: sort,
+      sortBy: sort
     }
     url = 'https://lobste.rs/hottest.json'
     res = RestClient.get(url, :params => params, :verify_ssl => false)
-    items = JSON.parse(res.body)
+    items = JSON.parse(res.body).take(limit)
     
-
     items.map do |item|
       LobstersItem.from_hash(item)
     end

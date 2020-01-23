@@ -4,9 +4,9 @@
 <% content_for(:results, @results) %>
 
 <% if @results.present? %>
-  <div class="bg-gray w-100 bg-white bb b--black-10">
-    <span class="ph2" style="color: #646464; font-size: 12px; font-weight: normal;">Showing <strong><%= pluralize(@results.size, "result") %></strong> from  <%= @source.title %></span>
-    <div class="dn">
+  <div class="dt bg-gray w-100 bg-white bb b--black-10">
+    <span class="dtc ph2 black-40 f7 fw5 pa2">Showing <strong><%= pluralize(@results.size, "result") %></strong> from  <%= @source.title %></span>
+    <div class="dtc tr pr2">
       <button id="save-query" type="button" role="button" class="btn btn-outline-primary">Save</button>
     </div>
   </div>
