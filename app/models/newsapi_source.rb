@@ -6,7 +6,6 @@ class NewsapiSource < Source
     @source_title = @title
     @source_url = @url
     @filters = {
-      sorts: %i(new hot top),
       limits: 1..50
     }
   end
@@ -15,18 +14,11 @@ class NewsapiSource < Source
   def request(args, options={})
     limit = @filters[:limits].include?(options[:limit]) ? options[:limit] : 10
 
-    sorts = {
-      :new => :latest,
-      :hot => :popular,
-      :top => :top
-    }
-    sort = sorts[options[:sort]] || :top
-
     params = {
       sources: args[1],
-      sortBy: sort,
       apiKey: ENV['NEWSAPI_KEY']
     }
+
     url = 'https://newsapi.org/v2/top-headlines'
     res = RestClient.get(url, :params => params, :verify_ssl => false)
     json = JSON.parse(res.body)
