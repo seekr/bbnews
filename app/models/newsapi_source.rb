@@ -6,7 +6,6 @@ class NewsapiSource < Source
     @source_title = @title
     @source_url = @url
     @filters = {
-      sorts: %i(new hot top),
       limits: 1..50
     }
   end
@@ -22,9 +21,17 @@ class NewsapiSource < Source
     }
     sort = sorts[options[:sort]] || :top
 
+    if args[1].size == 2
+      source = ''
+      country = args[1]
+    else 
+      source = args[1]
+      country = ''
+    end
+
     params = {
-      sources: args[1],
-      sortBy: sort,
+      sources: source,
+      country: country,
       apiKey: ENV['NEWSAPI_KEY']
     }
     url = 'https://newsapi.org/v2/top-headlines'
