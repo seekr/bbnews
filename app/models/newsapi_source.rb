@@ -6,6 +6,7 @@ class NewsapiSource < Source
     @source_title = @title
     @source_url = @url
     @filters = {
+      sorts: %i(new hot top),
       limits: 1..50
     }
   end
@@ -14,13 +15,20 @@ class NewsapiSource < Source
   def request(args, options={})
     limit = @filters[:limits].include?(options[:limit]) ? options[:limit] : 10
 
+    sorts = {
+      :new => :latest,
+      :hot => :popular,
+      :top => :top
+    }
+    sort = sorts[options[:sort]] || :top
+
     params = {
       sources: args[1],
+      sortBy: sort,
       apiKey: ENV['NEWSAPI_KEY']
     }
-
     url = 'https://newsapi.org/v2/top-headlines'
-    res = RestClient.get(url, :params => params, :verify_ssl => false)
+    res = RestClient.get(url, :params => params)
     json = JSON.parse(res.body)
     items = json['articles'].take(limit)
 
@@ -36,7 +44,7 @@ class NewsapiSource < Source
 
     Rails.cache.fetch('newsapi:suggestions', expires_in: 1.day) do
       url = 'https://newsapi.org/v2/sources'
-      res = RestClient.get(url, apiKey: ENV['NEWSAPI_KEY'], :verify_ssl => false)
+      res = RestClient.get(url, apiKey: ENV['NEWSAPI_KEY'])
       json = JSON.parse(res.body)
       json['sources'].map { |source| source['id'] }
     end
