@@ -3,7 +3,7 @@
   <div class="dtc pa2">
 
     <% if item.title %>
-      <a class="link black lh-title f5 fw6 underline-hover" href="<%= item.url %>"><%= item.title %></a>
+      <a class="link black lh-title f5 fw6 underline-hover" href="<%= item.url %>" target="_blank"><%= item.title %></a>
     <% end %>
 
     <div class="metadata">
@@ -22,7 +22,7 @@
 
     <% if item.counts %>
       <% item.counts.each do |k, v| %>
-        <a class="f6 link gray underline-hover" href="<%= item.via %>">
+        <a class="f6 link gray underline-hover" href="<%= item.via %>" target="_blank">
           <%= number_to_human(v) %>
           <%= k.pluralize(v) %>
         </a> 
@@ -30,7 +30,7 @@
     <% end %>
     
     <% if item.author %>
-      <a class="f6 link gray underline-hover" href="<%= item.via %>">
+      <a class="f6 link gray underline-hover" href="<%= item.via %>" target="_blank">
         @<%= item.author %> 
       </a>
     <% end %>
